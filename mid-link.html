@@ -1,0 +1,45 @@
+<!--
+ * @Description: 
+ * @FilePath: \schema.js\mid-link.html
+ * @Version: 1.0
+ * @Autor: CuiGang
+ * @Date: 2020-12-01 16:59:42
+ * @LastEditors: CuiGang
+ * @LastEditTime: 2020-12-03 10:22:19
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mid-link</title>
+    <script src="./schema/callapp.js"></script>
+  </head>
+  <body>
+    <a
+      href="webficnovel://googleAd?bid=21000002004&cid=0&channelCode=WLOT00266"
+      >点击跳转</a
+    >
+
+    <button id="btn">点击跳转schema</button>
+    <script>
+      window.onload = function () {
+        document.getElementById("btn").onclick = function () {
+          new CallApp({
+            timeout: 3000,  // 拉起APP失败 后 隔多久打开下载
+            schema:
+              "webficnovel://googleAd?bid=21000002004&cid=0&channelCode=WLOT00266", // schema链接
+            iosDownloadUrl: "https://apps.apple.com/us/app/id1517946671", 
+            universalLink:"https://apps.apple.com/us/app/id1517946671", 
+            appstore:"https://apps.apple.com/us/app/id1517946671",  // IOS下载地址
+            andDownloadUrl: // 安卓下载地址
+              "https://play.google.com/store/apps/details?id=com.webfic.novel",
+            succCallback: function () {
+              console.log("打开成功");
+            },
+          });
+        };
+      };
+    </script>
+  </body>
+</html>
